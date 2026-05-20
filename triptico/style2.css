@@ -1,0 +1,534 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  background:
+  radial-gradient(circle at top,
+  #25003d,
+  #090014 60%);
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+
+  font-family:'Poppins', sans-serif;
+
+  color:white;
+}
+
+/* HERO */
+
+.hero{
+
+  text-align:center;
+
+  padding:50px 20px 30px;
+}
+
+.hero h1{
+
+  font-size:4rem;
+
+  font-family:'Orbitron', sans-serif;
+
+  color:#e879f9;
+
+  text-shadow:
+  0 0 20px #c026d3,
+  0 0 40px #9333ea;
+}
+
+.hero p{
+
+  margin-top:15px;
+
+  color:#d8b4fe;
+
+  font-size:1.1rem;
+}
+
+button{
+
+  margin-top:30px;
+
+  padding:15px 35px;
+
+  border:none;
+
+  border-radius:15px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #9333ea,
+    #c026d3
+  );
+
+  color:white;
+
+  font-size:1rem;
+
+  cursor:pointer;
+
+  transition:.4s;
+}
+
+button:hover{
+
+  transform:scale(1.08);
+
+  box-shadow:
+  0 0 20px #d946ef;
+}
+
+/* ESCENA */
+
+.scene{
+
+  width:100%;
+
+  display:flex;
+
+  justify-content:center;
+
+  perspective:3000px;
+
+  padding:50px;
+}
+
+/* TRIPTICO */
+
+.triptico{
+
+  position:relative;
+
+  width:1800px;
+
+  height:650px;
+
+  transform-style:preserve-3d;
+
+  transition:1.5s;
+}
+
+/* GIRAR */
+
+.triptico.flip{
+
+  transform:rotateY(180deg);
+}
+
+/* CARAS */
+
+.face{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:stretch;
+
+  gap:8px;
+
+  backface-visibility:hidden;
+}
+
+/* PARTE TRASERA */
+
+.back{
+
+  transform:rotateY(180deg);
+}
+
+/* PANELES */
+
+.panel{
+
+  flex:1;
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:18px;
+
+  padding:25px;
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(16,0,32,.95),
+    rgba(5,0,15,.95)
+  );
+
+  border:1px solid rgba(255,255,255,.1);
+
+  backdrop-filter:blur(10px);
+
+  transition:.6s;
+}
+
+/* EFECTO ACORDEON */
+
+.panel:hover{
+
+  flex:1.8;
+
+  transform:translateY(-15px);
+
+  box-shadow:
+  0 0 30px #9333ea,
+  0 0 60px #7e22ce;
+}
+
+/* BRILLO */
+
+.panel::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:-100%;
+
+  left:-50%;
+
+  width:200%;
+  height:200%;
+
+  background:
+  linear-gradient(
+    transparent,
+    rgba(255,255,255,.1),
+    transparent
+  );
+
+  transform:rotate(25deg);
+
+  animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+
+  0%{
+    top:-100%;
+  }
+
+  100%{
+    top:100%;
+  }
+}
+
+/* TITULOS */
+
+h2,h3{
+
+  font-family:'Orbitron', sans-serif;
+}
+
+h3{
+
+  color:#f0abfc;
+
+  margin-bottom:25px;
+
+  font-size:1.2rem;
+}
+
+/* PORTADA */
+
+.portada{
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,.5),
+    rgba(0,0,0,.8)
+  ),
+  url("https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1200&auto=format&fit=crop");
+
+  background-size:cover;
+  background-position:center;
+}
+
+/* FINAL */
+
+.final{
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,.5),
+    rgba(0,0,0,.8)
+  ),
+  url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop");
+
+  background-size:cover;
+  background-position:center;
+}
+
+/* OVERLAY */
+
+.overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    rgba(98,0,255,.3),
+    rgba(0,0,0,.7)
+  );
+}
+
+/* CONTENIDO */
+
+.content{
+
+  position:relative;
+  z-index:2;
+
+  height:100%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+}
+
+.content h2{
+
+  font-size:3rem;
+
+  color:white;
+
+  margin:20px 0;
+}
+
+/* ICONOS */
+
+.icon-big{
+
+  font-size:5rem;
+
+  color:#d946ef;
+
+  text-shadow:
+  0 0 20px #c026d3,
+  0 0 40px #9333ea;
+}
+
+.icon-box{
+
+  margin-top:30px;
+
+  height:140px;
+
+  border-radius:20px;
+
+  border:1px solid rgba(255,255,255,.1);
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  font-size:4rem;
+
+  color:#d946ef;
+
+  background:
+  rgba(255,255,255,.03);
+
+  box-shadow:
+  inset 0 0 20px rgba(255,255,255,.05);
+}
+
+/* TEXTO */
+
+p{
+
+  line-height:1.8;
+
+  color:#ddd;
+}
+
+ul{
+
+  list-style:none;
+}
+
+ul li{
+
+  margin-bottom:15px;
+
+  padding:12px;
+
+  border-radius:12px;
+
+  background:
+  rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.05);
+
+  transition:.4s;
+}
+
+ul li:hover{
+
+  transform:translateX(10px);
+
+  background:
+  rgba(168,85,247,.2);
+}
+
+/* CIRCULO */
+
+.circle-animation{
+
+  width:220px;
+  height:220px;
+
+  margin:auto;
+
+  border-radius:50%;
+
+  border:2px solid #c026d3;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  animation:rotate 12s linear infinite;
+
+  margin-top:50px;
+}
+
+.center-icon{
+
+  font-size:4rem;
+
+  color:#d946ef;
+}
+
+@keyframes rotate{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* PARTICULAS */
+
+.particles{
+
+  position:fixed;
+
+  width:100%;
+  height:100%;
+
+  background-image:
+  radial-gradient(#ffffff22 1px, transparent 1px);
+
+  background-size:40px 40px;
+
+  z-index:-1;
+
+  animation:moveBg 30s linear infinite;
+}
+
+@keyframes moveBg{
+
+  from{
+    transform:translateY(0);
+  }
+
+  to{
+    transform:translateY(100px);
+  }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1600px){
+
+  .scene{
+
+    overflow-x:auto;
+  }
+
+  .triptico{
+
+    width:1700px;
+  }
+}
+
+@media(max-width:900px){
+
+  .hero h1{
+
+    font-size:2.5rem;
+  }
+
+  .scene{
+
+    padding:20px;
+  }
+
+}
+@media (max-width:768px){
+
+  .panel{
+    min-height:200px;
+    padding:15px;
+  }
+
+}
+
+
+/* Estilos generales para la portada */
+.portada {
+  /* Tus estilos existentes aquí */
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* EL CAMBIO DE ESTILO QUE BUSCAS */
+.portada p {
+  font-family: 'Orbitron', sans-serif; /* Fuente estilo Cyberpunk/Tech */
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #00ff41; /* Verde neón */
+  text-shadow: 0 0 8px #00ff41; /* Efecto de brillo */
+  letter-spacing: 1.5px;
+  margin-top: 15px; /* Un poco de espacio con el título */
+  line-height: 1.5; /* Mejor lectura en móvil */
+}
+
+/* Opcional: Si quieres que el título tenga otra fuente diferente */
+.portada h2 {
+  font-family: 'Courier New', monospace;
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+

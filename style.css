@@ -1,0 +1,350 @@
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  min-height:100vh;
+
+  overflow:hidden;
+
+  font-family:'Poppins', sans-serif;
+
+  background:
+  radial-gradient(circle at top,
+  #2b0050,
+  #090014 70%);
+
+  color:white;
+
+  position:relative;
+}
+
+/* ========================= */
+/* GRID */
+/* ========================= */
+
+.background-grid{
+
+  position:absolute;
+
+  inset:0;
+
+  background-image:
+  linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
+  background-size:50px 50px;
+
+  z-index:0;
+}
+
+/* ========================= */
+/* PARTICULAS */
+/* ========================= */
+
+.particles{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  background-image:
+  radial-gradient(#ffffff33 1px, transparent 1px);
+
+  background-size:35px 35px;
+
+  animation:moveParticles 20s linear infinite;
+
+  z-index:0;
+}
+
+@keyframes moveParticles{
+
+  from{
+    transform:translateY(0);
+  }
+
+  to{
+    transform:translateY(120px);
+  }
+}
+
+/* ========================= */
+/* CONTENEDOR */
+/* ========================= */
+
+.main-container{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+  height:100vh;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:40px;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+
+  text-align:center;
+
+  margin-bottom:70px;
+}
+
+.hero h1{
+
+  font-size:5rem;
+
+  font-family:'Orbitron', sans-serif;
+
+  color:#f0abfc;
+
+  text-shadow:
+  0 0 20px #d946ef,
+  0 0 40px #9333ea;
+}
+
+.hero p{
+
+  margin-top:15px;
+
+  font-size:1.2rem;
+
+  color:#ddd;
+}
+
+/* ========================= */
+/* TARJETAS */
+/* ========================= */
+
+.cards-container{
+
+  display:flex;
+
+  gap:40px;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+
+.card{
+
+  position:relative;
+
+  width:320px;
+  height:420px;
+
+  padding:40px;
+
+  border-radius:25px;
+
+  overflow:hidden;
+
+  text-decoration:none;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(20,0,40,.95),
+    rgba(5,0,15,.95)
+  );
+
+  border:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(10px);
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  transition:.5s;
+}
+
+/* ========================= */
+/* GLOW */
+/* ========================= */
+
+.glow{
+
+  position:absolute;
+
+  width:250px;
+  height:250px;
+
+  background:#c026d3;
+
+  filter:blur(120px);
+
+  opacity:.25;
+
+  transition:.5s;
+}
+
+/* ========================= */
+/* HOVER */
+/* ========================= */
+
+.card:hover{
+
+  transform:
+  translateY(-15px)
+  scale(1.03);
+
+  box-shadow:
+  0 0 30px #9333ea,
+  0 0 60px #6b21a8;
+}
+
+.card:hover .glow{
+
+  transform:scale(1.4);
+
+  opacity:.4;
+}
+
+/* ========================= */
+/* ICONOS */
+/* ========================= */
+
+.card i{
+
+  font-size:5rem;
+
+  margin-bottom:30px;
+
+  color:#e879f9;
+
+  z-index:2;
+}
+
+/* ========================= */
+/* TITULOS */
+/* ========================= */
+
+.card h2{
+
+  font-family:'Orbitron', sans-serif;
+
+  margin-bottom:20px;
+
+  font-size:2rem;
+
+  z-index:2;
+}
+
+/* ========================= */
+/* TEXTO */
+/* ========================= */
+
+.card p{
+
+  line-height:1.8;
+
+  color:#ddd;
+
+  z-index:2;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:1100px){
+
+  body{
+
+    overflow:auto;
+  }
+
+  .main-container{
+
+    height:auto;
+
+    padding:80px 20px;
+  }
+
+  .cards-container{
+
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .hero h1{
+
+    font-size:3rem;
+  }
+
+}
+
+/* ========================= */
+/* DESCARGA PDF */
+/* ========================= */
+
+.download-tag{
+
+  margin-top:25px;
+
+  padding:12px 20px;
+
+  border-radius:12px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #9333ea,
+    #d946ef
+  );
+
+  font-size:.9rem;
+
+  font-weight:600;
+
+  letter-spacing:1px;
+
+  box-shadow:
+  0 0 20px rgba(217,70,239,.4);
+
+  transition:.4s;
+
+  z-index:2;
+}
+
+.info-download:hover .download-tag{
+
+  transform:scale(1.08);
+
+  box-shadow:
+  0 0 30px #d946ef;
+}
