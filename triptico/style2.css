@@ -1,4 +1,4 @@
-*{
+{
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -143,11 +143,23 @@ button:hover{
 
 /* PARTE TRASERA */
 
+/* PARTE TRASERA DESKTOP */
+
 .back{
 
   transform:rotateY(180deg);
 }
 
+/* MOBILE */
+
+@media (max-width:768px){
+
+  .back{
+
+    transform:none;
+  }
+
+}
 /* PANELES */
 
 .panel{
@@ -396,12 +408,12 @@ ul li:hover{
 
 .circle-animation{
 
-  width:220px;
-  height:220px;
+  width:200px;
+  height:200px;
 
   margin:auto;
 
-  border-radius:50%;
+  border-radius:80%;
 
   border:2px solid #c026d3;
 
@@ -532,3 +544,175 @@ ul li:hover{
 }
 
 
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width:768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .scene{
+    padding:10px;
+    perspective:none;
+  }
+
+  /* TRIPTICO */
+
+  .triptico{
+
+    width:100%;
+    height:auto;
+
+    transform:none !important;
+  }
+
+  /* CARAS */
+
+  .face{
+
+    position:relative;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    height:auto;
+
+    backface-visibility:visible;
+  }
+
+  /* MOSTRAR SOLO FRONT */
+
+  .face.front{
+    display:flex;
+  }
+
+  .face.back{
+    display:none;
+  }
+
+  /* CUANDO CAMBIA */
+
+  .triptico.mobile-flip .face.front{
+    display:none;
+  }
+
+  .triptico.mobile-flip .face.back{
+    display:flex;
+  }
+
+  /* PANELES */
+
+  .panel{
+
+    flex:none !important;
+
+    width:100%;
+
+    min-height:auto;
+
+    padding:0;
+
+    overflow:hidden;
+
+    transition:.5s;
+  }
+
+  /* QUITAR HOVER */
+
+  .panel:hover{
+
+    flex:none;
+
+    transform:none;
+
+    box-shadow:none;
+  }
+
+  /* HEADER */
+
+  .panel-header{
+
+    padding:18px 20px;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    cursor:pointer;
+
+    background:
+    rgba(255,255,255,.03);
+  }
+
+  .panel-header h3{
+
+    margin:0;
+
+    font-size:1rem;
+  }
+
+  .panel-header span{
+
+    color:#d946ef;
+
+    transition:.4s;
+  }
+
+  /* CONTENIDO */
+
+  .panel-content{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .5s ease;
+
+    padding:0 20px;
+  }
+
+  /* ACTIVO */
+
+  .panel.active .panel-content{
+
+    max-height:1200px;
+
+    padding:20px;
+  }
+
+  .panel.active .panel-header span{
+
+    transform:rotate(180deg);
+  }
+
+  /* AJUSTES */
+
+  .content h2{
+
+    font-size:2rem;
+  }
+
+  .icon-big{
+
+    font-size:3rem;
+  }
+
+  .icon-box{
+
+    height:100px;
+
+    font-size:2.5rem;
+  }
+
+  .circle-animation{
+
+    width:140px;
+    height:140px;
+  }
+
+}
