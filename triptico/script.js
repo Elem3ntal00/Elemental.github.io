@@ -1,89 +1,80 @@
 // =========================
 const flipButton = document.getElementById("flipButton");
-
 const triptico = document.getElementById("triptico");
 
-/* ========================= */
-/* GIRAR TRIPTICO */
-/* ========================= */
+/* =========================
+   FLIP
+========================= */
 
 flipButton.addEventListener("click", () => {
 
-  triptico.classList.toggle("flip");
+  /* DESKTOP */
 
-  if(triptico.classList.contains("flip")){
+  if(window.innerWidth > 768){
 
-    flipButton.innerText = "Ver Parte Frontal";
+    triptico.classList.toggle("flip");
 
-  }else{
+    if(triptico.classList.contains("flip")){
 
-    flipButton.innerText = "Ver Parte Trasera";
+      flipButton.textContent = "Ver Parte Frontal";
+
+    }else{
+
+      flipButton.textContent = "Ver Parte Trasera";
+
+    }
+
+  }
+
+  /* MOBILE */
+
+  else{
+
+    triptico.classList.toggle("mobile-flip");
+
+    if(triptico.classList.contains("mobile-flip")){
+
+      flipButton.textContent = "Ver Parte Frontal";
+
+    }else{
+
+      flipButton.textContent = "Ver Parte Trasera";
+
+    }
+
   }
 
 });
 
-/* ========================= */
-/* EFECTO 3D */
-/* ========================= */
 
-document.querySelectorAll(".panel").forEach(panel => {
+/* =========================
+   ACCORDION
+========================= */
 
-  panel.addEventListener("mousemove", (e) => {
+const panels = document.querySelectorAll(".panel");
 
-    const rect = panel.getBoundingClientRect();
+panels.forEach(panel => {
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  const header = panel.querySelector(".panel-header");
 
-    const rotateY = (x - rect.width / 2) / 20;
-    const rotateX = -(y - rect.height / 2) / 20;
+  if(header){
 
-    panel.style.transform = `
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      scale(1.03)
-    `;
-  });
+    header.addEventListener("click", () => {
 
-  panel.addEventListener("mouseleave", () => {
+      panels.forEach(p => {
 
-    panel.style.transform = `
-      rotateX(0deg)
-      rotateY(0deg)
-      scale(1)
-    `;
-  });
+        if(p !== panel){
 
-});
+          p.classList.remove("active");
 
-/* ========================= */
-/* TOQUE EN MOVIL */
-/* ========================= */
+        }
 
-let touchStartX = 0;
+      });
 
-document.addEventListener("touchstart", (e) => {
+      panel.classList.toggle("active");
 
-  touchStartX = e.changedTouches[0].screenX;
+    });
 
-});
-
-document.addEventListener("touchend", (e) => {
-
-  const touchEndX = e.changedTouches[0].screenX;
-
-  if(touchEndX < touchStartX - 50){
-
-    triptico.classList.add("flip");
-
-    flipButton.innerText = "Ver Parte Frontal";
-  }
-
-  if(touchEndX > touchStartX + 50){
-
-    triptico.classList.remove("flip");
-
-    flipButton.innerText = "Ver Parte Trasera";
   }
 
 });
